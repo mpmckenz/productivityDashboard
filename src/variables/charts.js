@@ -25,7 +25,7 @@ const dailySalesChart = {
       tension: 0,
     }),
     low: 0,
-    high: 50, 
+    high: 50,
     chartPadding: {
       top: 0,
       right: 0,
