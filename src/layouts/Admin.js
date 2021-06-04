@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 // creates a beautiful scrollbar
 import PerfectScrollbar from "perfect-scrollbar";
@@ -46,34 +46,32 @@ export default function Admin({ ...rest }) {
   // ref to help us initialize PerfectScrollbar on windows devices
   const mainPanel = React.createRef();
   // states and functions
-  const [image, setImage] = React.useState(bgImage);
-  const [color, setColor] = React.useState("blue");
-  const [fixedClasses, setFixedClasses] = React.useState("dropdown show");
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [image, setImage] = useState(bgImage);
+  const [color, setColor] = useState("blue");
+  const [mobileOpen, setMobileOpen] = useState(false);
+
   const handleImageClick = (image) => {
     setImage(image);
   };
+
   const handleColorClick = (color) => {
     setColor(color);
   };
-  const handleFixedClick = () => {
-    if (fixedClasses === "dropdown") {
-      setFixedClasses("dropdown show");
-    } else {
-      setFixedClasses("dropdown");
-    }
-  };
+
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
+
   const getRoute = () => {
     return window.location.pathname !== "/admin/maps";
   };
+
   const resizeFunction = () => {
     if (window.innerWidth >= 960) {
       setMobileOpen(false);
     }
   };
+
   // initialize and destroy the PerfectScrollbar plugin
   React.useEffect(() => {
     if (navigator.platform.indexOf("Win") > -1) {
@@ -92,11 +90,12 @@ export default function Admin({ ...rest }) {
       window.removeEventListener("resize", resizeFunction);
     };
   }, [mainPanel]);
+
   return (
     <div className={classes.wrapper}>
       <Sidebar
         routes={routes}
-        logoText={"Creative Tim"}
+        logoText={"Dashboard App"}
         logo={logo}
         image={image}
         handleDrawerToggle={handleDrawerToggle}
@@ -124,8 +123,6 @@ export default function Admin({ ...rest }) {
           handleColorClick={handleColorClick}
           bgColor={color}
           bgImage={image}
-          handleFixedClick={handleFixedClick}
-          fixedClasses={fixedClasses}
         />
       </div>
     </div>

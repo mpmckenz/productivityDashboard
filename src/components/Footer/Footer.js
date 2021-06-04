@@ -43,13 +43,13 @@ export default function Footer(props) {
           <span>
             &copy; {1900 + new Date().getYear()}{" "}
             <a
-              href="https://www.creative-tim.com?ref=mdr-footer"
+              // href="www.TODO.com"
               target="_blank"
               className={classes.a}
             >
-              Creative Tim
+              Michael McKenzie
             </a>
-            , made with love for a better web
+            , don't just aspire to make a living. Aspire to make a difference
           </span>
         </p>
       </div>
