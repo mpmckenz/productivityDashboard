@@ -128,7 +128,7 @@ export default function Notifications() {
           Made with{" "}
           <a
             target="_blank"
-            href="https://material-ui-next.com/?ref=creativetime"
+            href="www.madeUp.comFake"
           >
             Material UI
           </a>{" "}
